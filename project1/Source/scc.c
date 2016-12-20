@@ -94,12 +94,12 @@ void dfs2(int n){
 }
 
 void scc(int n){
-	int n;
 	struct edge *p,*q;
+	int i;
 	dfs(n);
 	for(i=0;i<n;i++){
 		for(p=v[i].adj;p;p=p->next){
-			struct edge *q=malloc(sizeof(edge));
+			q=malloc(sizeof(struct edge));
 			q->v=i;
 			q->next=vt[p->v].adj;
 			vt[p->v].adj=q;
@@ -124,7 +124,7 @@ int main(){
 		sprintf(filename,"../Input/size%d/input.txt",i+1);
 		fp=fopen(filename,"r");
 		while(fscanf(fp,"%d,%d",&a,&b)>0){
-			struct edge *p=malloc(sizeof(edge));
+			struct edge *p=malloc(sizeof(struct edge));
 			p->v=b;
 			p->next=v[a].adj;
 			v[a].adj=p;
@@ -133,12 +133,15 @@ int main(){
 
 		scc(n);
 
-		printf("(")
+		printf("(");
 		for(j=0;j<sccs_p-1;j++){
-			if(sccs[sccs_p]<0){
+			if(sccs[j]<0){
 				printf(")\n(");
 			}else{
-				printf("%d",sccs[sccs_p]);
+				printf("%d",sccs[j]);
+				if(sccs[j+1]>=0){
+					printf(",");
+				}
 			}
 		}
 		printf(")\n\n");

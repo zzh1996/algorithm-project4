@@ -1,0 +1,154 @@
+From 0 to 0: d=0
+(0)
+From 0 to 1: d=2
+(0,5,3,6,1)
+From 0 to 2: d=11
+(0,2)
+From 0 to 3: d=-6
+(0,5,3)
+From 0 to 4: d=22
+(0,5,3,6,4)
+From 0 to 5: d=-8
+(0,5)
+From 0 to 6: d=-2
+(0,5,3,6)
+From 0 to 7: d=-7
+(0,5,7)
+From 0 to 8: d=4
+(0,5,3,8)
+From 1 to 0: d=INF
+From 1 to 1: d=0
+(1)
+From 1 to 2: d=INF
+From 1 to 3: d=INF
+From 1 to 4: d=INF
+From 1 to 5: d=INF
+From 1 to 6: d=INF
+From 1 to 7: d=INF
+From 1 to 8: d=INF
+From 2 to 0: d=57
+(2,6,4,0)
+From 2 to 1: d=24
+(2,6,1)
+From 2 to 2: d=0
+(2)
+From 2 to 3: d=34
+(2,6,3)
+From 2 to 4: d=44
+(2,6,4)
+From 2 to 5: d=49
+(2,6,4,0,5)
+From 2 to 6: d=20
+(2,6)
+From 2 to 7: d=50
+(2,6,4,0,5,7)
+From 2 to 8: d=44
+(2,6,3,8)
+From 3 to 0: d=41
+(3,6,4,0)
+From 3 to 1: d=8
+(3,6,1)
+From 3 to 2: d=52
+(3,6,4,0,2)
+From 3 to 3: d=0
+(3)
+From 3 to 4: d=28
+(3,6,4)
+From 3 to 5: d=30
+(3,8,5)
+From 3 to 6: d=4
+(3,6)
+From 3 to 7: d=31
+(3,8,5,7)
+From 3 to 8: d=10
+(3,8)
+From 4 to 0: d=13
+(4,0)
+From 4 to 1: d=15
+(4,0,5,3,6,1)
+From 4 to 2: d=24
+(4,0,2)
+From 4 to 3: d=7
+(4,0,5,3)
+From 4 to 4: d=0
+(4)
+From 4 to 5: d=5
+(4,0,5)
+From 4 to 6: d=11
+(4,0,5,3,6)
+From 4 to 7: d=6
+(4,0,5,7)
+From 4 to 8: d=12
+(4,8)
+From 5 to 0: d=43
+(5,3,6,4,0)
+From 5 to 1: d=10
+(5,3,6,1)
+From 5 to 2: d=29
+(5,2)
+From 5 to 3: d=2
+(5,3)
+From 5 to 4: d=30
+(5,3,6,4)
+From 5 to 5: d=0
+(5)
+From 5 to 6: d=6
+(5,3,6)
+From 5 to 7: d=1
+(5,7)
+From 5 to 8: d=12
+(5,3,8)
+From 6 to 0: d=37
+(6,4,0)
+From 6 to 1: d=4
+(6,1)
+From 6 to 2: d=48
+(6,4,0,2)
+From 6 to 3: d=14
+(6,3)
+From 6 to 4: d=24
+(6,4)
+From 6 to 5: d=29
+(6,4,0,5)
+From 6 to 6: d=0
+(6)
+From 6 to 7: d=30
+(6,4,0,5,7)
+From 6 to 8: d=24
+(6,3,8)
+From 7 to 0: d=66
+(7,6,4,0)
+From 7 to 1: d=33
+(7,6,1)
+From 7 to 2: d=77
+(7,6,4,0,2)
+From 7 to 3: d=43
+(7,6,3)
+From 7 to 4: d=53
+(7,6,4)
+From 7 to 5: d=58
+(7,6,4,0,5)
+From 7 to 6: d=29
+(7,6)
+From 7 to 7: d=0
+(7)
+From 7 to 8: d=53
+(7,6,3,8)
+From 8 to 0: d=63
+(8,5,3,6,4,0)
+From 8 to 1: d=30
+(8,5,3,6,1)
+From 8 to 2: d=49
+(8,5,2)
+From 8 to 3: d=22
+(8,5,3)
+From 8 to 4: d=50
+(8,5,3,6,4)
+From 8 to 5: d=20
+(8,5)
+From 8 to 6: d=26
+(8,5,3,6)
+From 8 to 7: d=21
+(8,5,7)
+From 8 to 8: d=0
+(8)

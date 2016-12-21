@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int g[729][729];
+int g[729][729]; //以邻接矩阵存储，方便查找
 
 int main(){
 	int i,j,k,n=3,nlog3n,a,b;
@@ -14,7 +14,7 @@ int main(){
 		nlog3n=n*(i+2);
 		for(j=0;j<n;j++){
 			for(k=0;k<n;k++){
-				g[j][k]=0;
+				g[j][k]=0; //初始化为0
 			}
 		}
 		sprintf(filename,"size%d/input.txt",i+1);
@@ -23,8 +23,8 @@ int main(){
 			do{
 				a=rand()%n;
 				b=rand()%n;
-			}while(g[a][b]);
-			g[a][b]=1;
+			}while(g[a][b]); //如果重复则换个位置生成
+			g[a][b]=1; //已经生成边则标记为1
 			fprintf(fp,"%d,%d\n",a,b);
 		}
 		fclose(fp);

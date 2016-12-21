@@ -16,14 +16,14 @@ struct vertex{
 	int pi;
 	int color;
 	int f;
-	struct edge *adj;
+	struct edge *adj; //邻接表的形式
 };
 
-struct vertex v[729];
-struct vertex vt[729];
+struct vertex v[729]; //原图
+struct vertex vt[729]; //转置后的图
 int ordered_vertex[729]; //in order of decreasing u.f
 int ordered_vertex_p;
-int sccs[729*2];
+int sccs[729*2]; //用于保存强连通分量的结果
 int sccs_p;
 
 int time_;
@@ -42,7 +42,7 @@ void dfs_visit(int i,int n){
 	v[i].color=BLACK;
 	time_++;
 	v[i].f=time_;
-	ordered_vertex[ordered_vertex_p]=i;
+	ordered_vertex[ordered_vertex_p]=i; //结束时按序保存在ordered_vertex以供下次DFS使用。否则对u.f排序，时间复杂度就会变大
 	ordered_vertex_p--;
 }
 
@@ -61,9 +61,9 @@ void dfs(int n){
 	}
 }
 
-void dfs_visit2(int i,int n){
+void dfs_visit2(int i,int n){ //对转置图的DFS
 	struct edge *p;
-	sccs[sccs_p++]=i;
+	sccs[sccs_p++]=i; //保存结果
 	time_++;
 	vt[i].d=time_;
 	vt[i].color=GRAY;
@@ -89,7 +89,7 @@ void dfs2(int n){
 	for(i=0;i<n;i++){
 		if(vt[ordered_vertex[i]].color==WHITE){
 			dfs_visit2(ordered_vertex[i],n);
-			sccs[sccs_p++]=-1;
+			sccs[sccs_p++]=-1; //分隔DFS森林中不同的树
 		}
 	}
 }
@@ -98,7 +98,7 @@ void scc(int n){
 	struct edge *p,*q;
 	int i;
 	dfs(n);
-	for(i=0;i<n;i++){
+	for(i=0;i<n;i++){ //求转置图
 		for(p=v[i].adj;p;p=p->next){
 			q=malloc(sizeof(struct edge));
 			q->v=i;
@@ -117,7 +117,7 @@ int main(){
     struct timespec start,stop;
 	for(i=0;i<5;i++){
 		n*=3;
-		for(j=0;j<n;j++){
+		for(j=0;j<n;j++){ //初始化
 			v[j].d=vt[j].d=-1;
 			v[j].pi=vt[j].pi=-1;
 			v[j].color=vt[j].color=-1;
@@ -126,7 +126,7 @@ int main(){
 		}
 		sprintf(filename,"../Input/size%d/input.txt",i+1);
 		fp=fopen(filename,"r");
-		while(fscanf(fp,"%d,%d",&a,&b)>0){
+		while(fscanf(fp,"%d,%d",&a,&b)>0){ //读入数据
 			struct edge *p=malloc(sizeof(struct edge));
 			p->v=b;
 			p->next=v[a].adj;
@@ -146,7 +146,7 @@ int main(){
         sprintf(filename,"../Output/size%d/output1.txt",i+1);
         fp=fopen(filename,"w");
 		fprintf(fp,"(");
-		for(j=0;j<sccs_p-1;j++){
+		for(j=0;j<sccs_p-1;j++){ //写入结果
 			if(sccs[j]<0){
 				fprintf(fp,")\n(");
 			}else{

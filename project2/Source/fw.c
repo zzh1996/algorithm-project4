@@ -108,7 +108,7 @@ int main(){
 	FILE *fp;
 	char filename[100];
 	double diff;
-    struct timespec start,stop;
+	struct timespec start,stop;
 	srand(time(0));
 	for(i=0;i<5;i++){
 		n*=3;
@@ -153,11 +153,11 @@ int main(){
 		diff=(stop.tv_sec-start.tv_sec)+(double)(stop.tv_nsec-start.tv_nsec)/1000000000L;
 		sprintf(filename,"../Output/size%d/time2.txt",i+1);
 		fp=fopen(filename,"w");
-        fprintf(fp,"%.9fs\n",diff);
-        fclose(fp);
+		fprintf(fp,"%.9fs\n",diff);
+		fclose(fp);
 
-        sprintf(filename,"../Output/size%d/output2.txt",i+1);
-        fp=fopen(filename,"w");
+		sprintf(filename,"../Output/size%d/output2.txt",i+1);
+		fp=fopen(filename,"w");
 		for(j=0;j<n;j++){ //输出结果
 			for(k=0;k<n;k++){
 				fprintf(fp,"From %d to %d: ",j,k);

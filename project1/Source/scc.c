@@ -6,6 +6,8 @@
 
 enum {WHITE,GRAY,BLACK};
 
+char *colors[]={"red","blue","black","yellow","green","orange","pink","white","indigo","darkgreen","darkorange","darkred","darkgray"};
+
 struct edge{
 	int v;
 	struct edge *next;
@@ -114,7 +116,7 @@ int main(){
 	FILE *fp;
 	char filename[100];
 	double diff;
-    struct timespec start,stop;
+	struct timespec start,stop;
 	for(i=0;i<5;i++){
 		n*=3;
 		for(j=0;j<n;j++){ //初始化
@@ -140,11 +142,11 @@ int main(){
 		diff=(stop.tv_sec-start.tv_sec)+(double)(stop.tv_nsec-start.tv_nsec)/1000000000L;
 		sprintf(filename,"../Output/size%d/time1.txt",i+1);
 		fp=fopen(filename,"w");
-        fprintf(fp,"%.9fs\n",diff);
-        fclose(fp);
+		fprintf(fp,"%.9fs\n",diff);
+		fclose(fp);
 
-        sprintf(filename,"../Output/size%d/output1.txt",i+1);
-        fp=fopen(filename,"w");
+		sprintf(filename,"../Output/size%d/output1.txt",i+1);
+		fp=fopen(filename,"w");
 		fprintf(fp,"(");
 		for(j=0;j<sccs_p-1;j++){ //写入结果
 			if(sccs[j]<0){
@@ -157,6 +159,27 @@ int main(){
 			}
 		}
 		fprintf(fp,")\n\n");
+		fclose(fp);
+
+		//生成graphviz
+		sprintf(filename,"../Output/size%d/graph.dot",i+1);
+		fp=fopen(filename,"w");
+		fprintf(fp,"digraph g {\n");
+		int color_p=0;
+		for(j=0;j<sccs_p-1;j++){
+			if(sccs[j]<0){
+				color_p++; //change color
+			}else{
+				fprintf(fp,"%d [shape=circle,style=filled,fillcolor=%s];\n",sccs[j],colors[color_p]);
+			}
+		}
+		for(j=0;j<n;j++){
+			struct edge *p;
+			for(p=v[j].adj;p;p=p->next){
+				fprintf(fp,"%d->%d;\n",j,p->v);
+			}
+		}
+		fprintf(fp,"overlap=false;\nfontsize=12;\n}\n");
 		fclose(fp);
 	}
 	return 0;
